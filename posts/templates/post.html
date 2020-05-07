@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}{{ _("post card")|capfirst }}{% endblock %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="col-md-3 mb-3 mt-1">
+            {% include 'common/summary.html' %}
+        </div>
+        <div class="col-md-9">
+            {% include 'common/card.html' %}
+        </div>
+    </div>
+
+{% endblock %}

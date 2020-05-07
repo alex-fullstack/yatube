@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}
+    {% if post %}
+        {{ _("edit record")|capfirst }}
+    {% else %}
+        {{ _("new record")|capfirst }}
+    {% endif %}
+
+{% endblock %}
+
+{% block content %}
+
+    <div class="row justify-content-center">
+        <div class="col-md-10 p-5">
+            {% if post %}
+                {% include 'form.html' with form=form enctype="multipart/form-data" has_custom_attrs=True header_title=_("edit record") submit_title=_("save") %}
+            {% else %}
+                {% include 'form.html' with form=form enctype="multipart/form-data" has_custom_attrs=True header_title=_("add record to blog") submit_title=_("add record") %}
+            {% endif %}
+        </div>
+    </div>
+
+{% endblock %}

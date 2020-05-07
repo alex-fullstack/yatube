@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}{{ _("community posts")|capfirst }} {{ group.title }}{% endblock %}
+
+{% block content %}
+{% load i18n %}
+{% load thumbnail %}
+
+    <h1>{{ _("community posts")|capfirst }} {{ group.title }}</h1>
+
+    {% include "common/list.html" with page=page %}
+
+{% endblock %}

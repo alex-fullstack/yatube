@@ -1,0 +1,210 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-05-05 17:04+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
+"%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: posts/apps.py:7 posts/models.py:31
+msgid "posts"
+msgstr "записи"
+
+#: posts/forms.py:18
+msgid "Please insert record text"
+msgstr "Пожалуйста, введите текст записи"
+
+#: posts/forms.py:30
+msgid "Please insert comment text"
+msgstr "Пожалуйста, введите текст комментария"
+
+#: posts/models.py:10
+msgid "title"
+msgstr "заголовок"
+
+#: posts/models.py:11
+msgid "slug"
+msgstr "ярлык"
+
+#: posts/models.py:12
+msgid "description"
+msgstr "описание"
+
+#: posts/models.py:15 posts/models.py:26
+msgid "community"
+msgstr "сообщество"
+
+#: posts/models.py:16
+msgid "communities"
+msgstr "сообщества"
+
+#: posts/models.py:23 posts/models.py:38
+msgid "text"
+msgstr "текст"
+
+#: posts/models.py:24
+msgid "date published"
+msgstr "дата публикации"
+
+#: posts/models.py:25 posts/models.py:39 posts/models.py:53
+msgid "author"
+msgstr "автор"
+
+#: posts/models.py:27
+msgid "image"
+msgstr "изображение"
+
+#: posts/models.py:30 posts/models.py:40
+msgid "post"
+msgstr "запись"
+
+#: posts/models.py:41
+msgid "date of creation"
+msgstr "дата создания"
+
+#: posts/models.py:44
+msgid "comment"
+msgstr "комментарий"
+
+#: posts/models.py:45
+msgid "comments"
+msgstr "комментарии"
+
+#: posts/models.py:52 templates/nav.html:5
+msgid "user"
+msgstr "пользователь"
+
+#: posts/models.py:56
+msgid "follow"
+msgstr "подписка"
+
+#: posts/models.py:57
+msgid "follows"
+msgstr "подписки"
+
+#: posts/templates/common/card.html:27
+#, python-format
+msgid "%(counter)s comment"
+msgid_plural "%(counter)s comments"
+msgstr[0] "%(counter)s комментарий"
+msgstr[1] "%(counter)s комментария"
+msgstr[2] "%(counter)s комментариев"
+msgstr[3] "%(counter)s комментариев"
+
+#: posts/templates/common/card.html:31 posts/templates/common/comments.html:6
+msgid "add comment"
+msgstr "добавить комментарий"
+
+#: posts/templates/common/card.html:37
+msgid "edit"
+msgstr "редактировать"
+
+#: posts/templates/common/comments.html:12
+msgid "send"
+msgstr "отправить"
+
+#: posts/templates/common/summary.html:13
+msgid "subscribers_count"
+msgstr "подписчиков"
+
+#: posts/templates/common/summary.html:14
+msgid "subscription_date"
+msgstr "подписан"
+
+#: posts/templates/common/summary.html:19
+msgid "posts count"
+msgstr "записей"
+
+#: posts/templates/common/summary.html:26
+msgid "follow off"
+msgstr "отписаться"
+
+#: posts/templates/common/summary.html:31
+msgid "follow on"
+msgstr "подписаться"
+
+#: posts/templates/follow.html:2 posts/templates/follow.html:9
+msgid "last favorite updates"
+msgstr "последние обновления в избранном"
+
+#: posts/templates/group.html:2 posts/templates/group.html:8
+msgid "community posts"
+msgstr "записи сообщества"
+
+#: posts/templates/index.html:2 posts/templates/index.html:9
+msgid "last site updates"
+msgstr "последние обновления на сайте"
+
+#: posts/templates/new.html:4 posts/templates/new.html:16
+msgid "edit record"
+msgstr "редактировать запись"
+
+#: posts/templates/new.html:6 templates/nav.html:6
+msgid "new record"
+msgstr "новая запись"
+
+#: posts/templates/new.html:16
+msgid "save"
+msgstr "сохранить"
+
+#: posts/templates/new.html:18
+msgid "add record to blog"
+msgstr "добавить запись в блог"
+
+#: posts/templates/new.html:18
+msgid "add record"
+msgstr "добавить запись"
+
+#: posts/templates/post.html:2
+msgid "post card"
+msgstr "карточка записи"
+
+#: posts/templates/profile.html:2
+msgid "author posts"
+msgstr "записи автора"
+
+#: templates/base.html:6
+msgid "page title"
+msgstr "заголовок страницы"
+
+#: templates/footer.html:3
+msgid "about author"
+msgstr "об авторе"
+
+#: templates/footer.html:3
+msgid "technologies"
+msgstr "технологии"
+
+#: templates/footer.html:5
+msgid "social net"
+msgstr "социальная сеть"
+
+#: templates/nav.html:7
+msgid "change password"
+msgstr "изменить пароль"
+
+#: templates/nav.html:8
+msgid "sign out"
+msgstr "выйти"
+
+#: templates/nav.html:10
+msgid "sign in"
+msgstr "войти"
+
+#: templates/nav.html:12
+msgid "registration"
+msgstr "регистрация"

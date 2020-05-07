@@ -1,0 +1,15 @@
+<nav class="navbar navbar-light bg-dark fixed-top">
+    <a class="navbar-brand" href="/"><span class="text-danger">Ya</span><span class="text-white">tube</span></a>
+    <nav class="my-2 my-md-0 mr-md-3">
+        {% if user.is_authenticated %}
+            <span class="text-white">{{ _("user")|capfirst }}: {{ user.username }}</span>
+            <a class="p-2 text-light" href="{% url 'post_create' %}">{{ _("new record")|capfirst }}</a>
+            <a class="p-2 text-light" href="{% url 'password_change' %}">{{ _("change password")|capfirst }}</a>
+            <a class="p-2 text-light" href="{% url 'logout' %}">{{ _("sign out")|capfirst }}</a>
+        {% else %}
+            <a class="p-2 text-light" href="{% url 'login' %}">{{ _("sign in")|capfirst }}</a>
+            <span class="text-white"> | </span>
+            <a class="p-2 text-light" href="{% url 'signup' %}">{{ _("registration")|capfirst }}</a>
+        {% endif %}
+    </nav>
+</nav>

@@ -1,0 +1,39 @@
+<div class="card shadow-sm">
+    <div class="card-body">
+        <div class="h2">
+            {{ author.get_full_name }}
+        </div>
+        <div class="h4 text-muted">
+             {{ author.username }}
+        </div>
+        {% if following %}
+            <a class="badge badge-secondary"
+               href="{% url 'profile_unfollow' author.username %}" role="button">
+                {{ _("follow off")|capfirst }}
+            </a>
+        {% elif user != author %}
+            <a class="badge badge-secondary"
+               href="{% url 'profile_follow' author.username %}" role="button">
+                {{ _("follow on")|capfirst }}
+            </a>
+        {% endif %}
+    </div>
+    <ul class="list-group list-group-flush">
+        {% if followers.count %}
+            <li class="list-group-item">
+                <div class="h6 text-muted">
+                    {{ _("subscribers_count")|capfirst }}: {{ followers.count }} <br />
+                    {% if following %} {{ _("subscription_date")|capfirst }}: {{ following.follow_on_date }} {% endif %}
+                </div>
+            </li>
+        {% endif %}
+        <li class="list-group-item">
+            <div class="h6 text-muted">
+                {{ _("posts count")|capfirst }}: {{ posts_count }}
+            </div>
+        </li>
+    </ul>
+</div>
+
+
+

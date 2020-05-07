@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}{{ _("last site updates")|capfirst }}{% endblock %}
+
+{% load thumbnail %}
+{% block content %}
+
+    {% include "common/menu.html" with index=True %}
+
+    <h1>{{ _("last site updates")|capfirst }}</h1>
+
+    {% include "common/list.html" with page=page %}
+
+{% endblock %}
+

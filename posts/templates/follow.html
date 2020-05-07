@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}{{ _("last favorite updates")|capfirst }}{% endblock %}
+
+{% load thumbnail %}
+{% block content %}
+
+    {% include "common/menu.html" with follow=True %}
+
+    <h1>{{ _("last favorite updates")|capfirst }}</h1>
+
+    {% include "common/list.html" with page=page %}
+
+{% endblock %}
