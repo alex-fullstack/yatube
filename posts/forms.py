@@ -5,10 +5,6 @@ from .models import Post, Comment
 
 
 class PostForm(forms.ModelForm):
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.fields['group'].widget.attrs.update({'class': 'custom-select'})
-        self.fields['image'].widget.attrs.update({'class': 'form-control-file'})
 
     class Meta:
         model = Post
@@ -17,6 +13,10 @@ class PostForm(forms.ModelForm):
             'text': {
                 'required': _('Please insert record text')
             }
+        }
+        widgets = {
+            'group': forms.Select(attrs={'class': 'custom-select'}),
+            'image': forms.FileInput(attrs={'class': 'form-control-file'}),
         }
 
 

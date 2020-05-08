@@ -1,5 +1,5 @@
 from django.views.generic.base import TemplateResponseMixin, TemplateView
-from django.shortcuts import redirect, get_object_or_404
+from django.shortcuts import get_object_or_404
 from django.contrib.auth import get_user_model
 from django.views.generic import ListView
 from django.views.generic.edit import FormMixin
@@ -27,10 +27,10 @@ class SummaryViewMixin(AuthorMixin, TemplateResponseMixin):
         context['author'] = self.author
         context['posts_count'] = Post.objects.filter(author=self.author).count()
         followers = Follow.objects.filter(author=self.author)
-        if len(followers):
+        if followers.exists():
             context['followers'] = followers
             following = followers.filter(user=self.request.user)
-            if len(following) == 1:
+            if following.count() == 1:
                 context['following'] = following[0]
         return context
 

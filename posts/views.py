@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from django.views.generic import CreateView, DetailView, UpdateView, ListView, View
+from django.views.generic import CreateView, DetailView, UpdateView, View
 from django.urls import reverse_lazy
 from django.contrib.auth import get_user_model
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -31,8 +31,7 @@ class FollowView(LoginRequiredMixin, PostListViewMixin):
 
     @property
     def authors(self):
-        follows = Follow.objects.filter(user=self.request.user)
-        return [item.author for item in follows]
+        return Follow.objects.filter(user=self.request.user).values_list('author', flat=True)
 
     def get_queryset(self):
         return Post.objects.filter(author__in=self.authors).order_by('-pub_date')
@@ -65,9 +64,9 @@ class GroupView(PostListViewMixin):
 
     @property
     def group(self):
-        if not self._group or self._group.slug != self.kwargs['slug']:
-            self._group = get_object_or_404(Group, slug=self.kwargs['slug'])
-        return self._group
+        if self._group and self._group.slug == self.kwargs['slug']:
+            return self._group
+        return get_object_or_404(Group, slug=self.kwargs['slug'])
 
     def get_queryset(self):
         return Post.objects.filter(group=self.group).order_by('-pub_date')

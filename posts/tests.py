@@ -53,27 +53,25 @@ class NewPostTest(TestCase):
     def test_new_post_create(self):
         """Проверка публикации новой записи"""
         expected_post_text = 'Текст новой записи'
-        response = self.client.post('/new', {'text': expected_post_text}, follow=True)
+        response = self.client.post('/new/', {'text': expected_post_text}, follow=True)
 
         self.assertEqual(
             response.redirect_chain, [('/', 302)],
             msg='Нет перенаправления на главную страницу после публикации новой записи'
         )
 
-        actual_post_text = Post.objects.get(text=expected_post_text).text
-
-        self.assertEqual(
-            actual_post_text, expected_post_text,
+        self.assertTrue(Post.objects.filter(
+            text=expected_post_text).exists(),
             msg="Не удалось опубликовать новую запись"
         )
 
     def test_new_post_create_fail(self):
         """Проверка перенаправления на главную страницу при попытке опубликовать пост без авторизации"""
         self.client.logout()
-        response = self.client.post('/new', {'text': 'Текст новой записи'}, follow=True)
+        response = self.client.post('/new/', {'text': 'Текст новой записи'}, follow=True)
 
         self.assertEqual(
-            response.redirect_chain, [('/auth/login/?next=/new', 302)],
+            response.redirect_chain, [('/auth/login/?next=/new/', 302)],
             msg='Нет перенаправления на главную страницу при попытке опубликовать пост без авторизации'
         )
 
@@ -318,20 +316,18 @@ class FollowTest(TestCase):
 
     def test_follow(self):
         """Проверка подписки на ленту автора"""
-        self.client.get(f'/{self.author.username}/follow')
+        self.client.get(f'/{self.author.username}/follow/')
 
-        follow = Follow.objects.get(author=self.author, user=self.user)
-
-        self.assertEqual(
-            follow.user, self.user,
-            msg='Нет подписки на ленту автора'
+        self.assertTrue(Follow.objects.filter(
+            author=self.author, user=self.user).exists(),
+            msg="Нет подписки на ленту автора"
         )
 
     def test_unfollow(self):
         """Проверка отписки от ленты автора"""
         Follow.objects.create(author=self.author, user=self.user)
 
-        self.client.get(f'/{self.author.username}/unfollow')
+        self.client.get(f'/{self.author.username}/unfollow/')
 
         with self.assertRaises(Follow.DoesNotExist):
             Follow.objects.get(author=self.author, user=self.user)
@@ -340,7 +336,7 @@ class FollowTest(TestCase):
         """Проверка публикации новой записи в ленте подписчика"""
         expected_post_text = 'Текст новой записи'
         Post.objects.create(text=expected_post_text, author=self.author)
-        self.client.get(f'/{self.author.username}/follow')
+        self.client.get(f'/{self.author.username}/follow/')
         response = self.client.get('/follow/')
 
         self.assertContains(
