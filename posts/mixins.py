@@ -1,4 +1,4 @@
-from django.views.generic.base import TemplateResponseMixin, TemplateView
+from django.views.generic.base import TemplateResponseMixin
 from django.shortcuts import get_object_or_404
 from django.contrib.auth import get_user_model
 from django.views.generic import ListView

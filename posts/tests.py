@@ -60,8 +60,8 @@ class NewPostTest(TestCase):
             msg='Нет перенаправления на главную страницу после публикации новой записи'
         )
 
-        self.assertTrue(Post.objects.filter(
-            text=expected_post_text).exists(),
+        self.assertTrue(
+            Post.objects.filter(text=expected_post_text).exists(),
             msg="Не удалось опубликовать новую запись"
         )
 
@@ -318,8 +318,8 @@ class FollowTest(TestCase):
         """Проверка подписки на ленту автора"""
         self.client.get(f'/{self.author.username}/follow/')
 
-        self.assertTrue(Follow.objects.filter(
-            author=self.author, user=self.user).exists(),
+        self.assertTrue(
+            Follow.objects.filter(author=self.author, user=self.user).exists(),
             msg="Нет подписки на ленту автора"
         )
 
