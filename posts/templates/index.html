@@ -3,12 +3,13 @@
 
 {% load thumbnail %}
 {% block content %}
+    {% load cache %}
+    {% cache 20 index_page %}
+        {% include "common/menu.html" with index=True %}
 
-    {% include "common/menu.html" with index=True %}
+        <h1>{{ _("last site updates")|capfirst }}</h1>
 
-    <h1>{{ _("last site updates")|capfirst }}</h1>
-
-    {% include "common/list.html" with page=page %}
-
+        {% include "common/list.html" with page=page %}
+    {% endcache %}
 {% endblock %}
 

@@ -18,10 +18,6 @@ User = get_user_model()
 class IndexView(PostListViewMixin):
     template_name = 'index.html'
 
-    @classonlymethod
-    def as_view(self, **kwargs):
-        return cache_page(20, key_prefix='index_page')(super(IndexView, self).as_view(**kwargs))
-
     def get_queryset(self):
         return Post.objects.order_by('-pub_date')
 
